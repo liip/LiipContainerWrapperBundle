@@ -20,7 +20,7 @@ class LiipContainerWrapperExtension extends Extension
     {
         $processor = new Processor();
         $configuration = new Configuration();
-        $config = $processor->process($configuration->getConfigTree(), $configs);
+        $config = $processor->processConfiguration($configuration, $configs);
 
         $loader = $this->getFileLoader($container);
         $loader->load('container_wrapper.xml');
