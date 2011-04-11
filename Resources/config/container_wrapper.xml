@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="liip_container_wrapper.default_service_map" type="collection" />
+        <parameter key="liip_container_wrapper.default_parameter_map" type="collection" />
+    </parameters>
+
+    <services>
+        <service id="liip_container_wrapper.service" class="lsmith77\DependencyInjection\ContainerWrapper" abstract="true">
+            <tag name="liip_container_wrapper.service" />
+            <argument type="collection" /> <!-- controller name -->
+            <argument type="collection" /> <!-- controller name -->
+            <argument>%liip_container_wrapper.default_service_map%</argument>
+            <argument>%liip_container_wrapper.default_parameter_map%</argument>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+    </services>
+</container>
