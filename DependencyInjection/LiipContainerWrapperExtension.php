@@ -25,7 +25,7 @@ class LiipContainerWrapperExtension extends Extension
         $loader = $this->getFileLoader($container);
         $loader->load('container_wrapper.xml');
 
-        $container->setParameter($this->getAlias().'.remove_unmapped', $config['remove_unmapped']);
+        $container->setParameter($this->getAlias().'.disable_optimization', $config['disable_optimization']);
 
         if (!empty($config['services'])) {
             $container->setParameter($this->getAlias().'.default_service_map', $config['services']);

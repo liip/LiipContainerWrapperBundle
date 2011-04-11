@@ -36,7 +36,7 @@ Configuration
 -------------
 
 Default services and parameters maybe configured inside the application configuration.
-Setting ``remove_unmapped`` to true will remove the ContainerWrapper service in favor of an
+Setting ``disable_optimization`` to true will remove the ContainerWrapper service in favor of an
 alias to ``service_container`` in all cases where no mapping is used:
 
     # app/config.yml
@@ -44,5 +44,6 @@ alias to ``service_container`` in all cases where no mapping is used:
         services:
             my_templating: templating
         parameters:
-            kernel_debug: true
-        remove_unmapped: true
+            kernel.debug: true
+        disable_optimization: %kernel.debug%
+

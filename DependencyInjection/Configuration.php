@@ -39,7 +39,7 @@ class Configuration implements ConfigurationInterface
                     ->useAttributeAsKey('parameters')
                     ->prototype('scalar')->end()
                 ->end()
-                ->booleanNode('remove_unmapped')->defaultTrue()->end()
+                ->booleanNode('disable_optimization')->defaultValue('%kernel.debug%')->end()
             ->end()
         ->end();
 

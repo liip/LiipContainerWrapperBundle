@@ -13,13 +13,12 @@ class RemoveContainerWrapperPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->getParameter('liip_container_wrapper.remove_unmapped')) {
+        if ($container->getParameter('liip_container_wrapper.disable_optimization')) {
             return;
         }
 
         $class = $container->getDefinition('liip_container_wrapper.service')->getClass();
 
-        $aliases = array();
         foreach ($container->getDefinitions() as $id => $definition) {
             if ($definition->isAbstract() || $definition->getClass() != $class) {
                 continue;
