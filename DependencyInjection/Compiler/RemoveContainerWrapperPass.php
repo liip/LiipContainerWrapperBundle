@@ -30,13 +30,8 @@ class RemoveContainerWrapperPass implements CompilerPassInterface
                 && !$this->containsMappings($container, $arguments[2])
                 && !$this->containsMappings($container, $arguments[3])
             ) {
-                $aliases[$id] = 'service_container';
+                $container->setAlias('service_container', $id);
             }
-        }
-
-        if (!empty($aliases)) {
-            // TODO this failed because the service_container does not exist at this stage yet
-            $container->addAliases($aliases);
         }
     }
 
