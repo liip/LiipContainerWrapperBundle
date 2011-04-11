@@ -2,8 +2,7 @@
 
 namespace Liip\ContainerWrapperBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Builder\NodeBuilder,
-    Symfony\Component\Config\Definition\Builder\TreeBuilder,
+use Symfony\Component\Config\Definition\Builder\TreeBuilder,
     Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
