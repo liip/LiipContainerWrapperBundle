@@ -10,6 +10,8 @@ Because mommy taught you to not screw DI by just injecting everything.
     3. It can replace itself with an alias to ``service_container`` via a config
        option as long as no service/parameter is mapped to a different id/name
 
+Note https://github.com/symfony/symfony/pull/532 is required before 3. can be enabled
+
 Installation
 ============
 
@@ -53,6 +55,24 @@ alias to ``service_container`` in all cases where no mapping is used:
         parameters:
             kernel.debug: true
         disable_optimization: %kernel.debug%
+
+Both ``services`` and ``parameters`` are configured as key value pairs. The key is the id/name
+that is reachable from this specific ``ContainerWrapper`` instance. The value may either be
+``true`` or an id/name of a different service or parameter. In case of a non ``true`` value
+the id/name will be mapped to this other id/name.
+
+Take the above example:
+
+    // will return an instance of the 'acme_hello.templating' service
+    $container->get('templating');
+
+    // will return an the value of the 'kernel.debug' parameter
+    $container->getParameter('kernel.debug');
+
+Note that because ``templating`` is mapped to a different service id, setting
+``disable_optimization`` to ``false`` would have no effect, since a normal
+``Container`` instance would not be able to support setting different alias's
+for ``templating``.
 
 Example use
 -----------
