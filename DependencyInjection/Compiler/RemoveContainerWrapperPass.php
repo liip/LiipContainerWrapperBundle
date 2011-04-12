@@ -25,22 +25,19 @@ class RemoveContainerWrapperPass implements CompilerPassInterface
             }
 
             $arguments = $definition->getArguments();
-            if (!$this->containsMappings($container, $arguments[0])
-                && !$this->containsMappings($container, $arguments[1])
-                && !$this->containsMappings($container, $arguments[2])
-                && !$this->containsMappings($container, $arguments[3])
+            if (!$this->containsMappings($arguments[0])
+                && !$this->containsMappings($container->getParameterBag()->resolveValue($arguments[1]))
+                && !$this->containsMappings($arguments[2])
+                && !$this->containsMappings($container->getParameterBag()->resolveValue($arguments[3]))
             ) {
-                $container->setAlias('service_container', $id);
+                // TODO requires https://github.com/symfony/symfony/pull/532
+                // $container->setAlias($id, 'service_container');
             }
         }
     }
 
-    private function containsMappings(ContainerBuilder $container, $list)
+    private function containsMappings($list)
     {
-        if (!is_array($list)) {
-            $list = $container->getParameterBag()->resolveValue($list);
-        }
-
         foreach ($list as $item) {
             if ($item !== true) {
                 return true;
