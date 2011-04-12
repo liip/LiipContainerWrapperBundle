@@ -10,7 +10,7 @@
     </parameters>
 
     <services>
-        <service id="liip_container_wrapper.service" class="lsmith77\DependencyInjection\ContainerWrapper" abstract="true">
+        <service id="liip_container_wrapper.service" class="Liip\ContainerWrapperBundle\DependencyInjection\ContainerWrapper" abstract="true">
             <tag name="liip_container_wrapper.service" />
             <argument type="collection" /> <!-- service id map -->
             <argument type="collection" /> <!-- parameter name map -->

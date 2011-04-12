@@ -18,14 +18,12 @@ Installation
     1. Add this bundle to your project as a Git submodule:
 
         $ git submodule add git://github.com/liip/ContainerWrapperBundle.git vendor/bundles/Liip/ContainerWrapperBundle
-        $ git submodule add git://github.com/lsmith77/Symfony2-Container-service-wrapper.git vendor/lsmith77
 
-    2. Add the Liip and lsmith77 namespaces to your autoloader:
+    2. Add the Liip namespace to your autoloader:
 
         // app/autoload.php
         $loader->registerNamespaces(array(
             'Liip' => __DIR__.'/../vendor/bundles',
-            'lsmith77' => __DIR__.'/../vendor',
             // your other namespaces
         ));
 
@@ -42,7 +40,7 @@ Installation
         }
 
 Configuration
--------------
+=============
 
 Default services and parameters maybe configured inside the application configuration.
 Setting ``disable_optimization`` to true will remove the ContainerWrapper service in favor of an
@@ -75,7 +73,7 @@ Note that because ``templating`` is mapped to a different service id, setting
 for ``templating``.
 
 Example use
------------
+===========
 
 The following YAML configuration extends  the ``liip_container_wrapper.service`` abstract
 service to define an ``acme_hello.container`` service that can be injected in place of
@@ -92,3 +90,59 @@ in the bundle configuration as well as the ones defined in this configuration:
         arguments:
             index_0:
                 some_service: true
+
+The story of saved kittens
+==========================
+
+Why oh why?
+-----------
+
+Yes, why oh why would someone bother to setup a nice dependency injection container
+and then waste all its goodness by just injecting the entire container, thereby
+effectively making their code dependent on essentially everything configured in the
+DI container? I am sure god kills more than a few kittens whenever ..
+
+Aside from the kittens, injecting the container also prevents granular adjustments
+to your dependencies. Aka controller Blabla needs a different templating service
+injected than controller DingDing, but how do you do that if your code uses
+``$this->container->get('templating')`` in both? Praying to god is not the answer,
+he is busy killing kittens anyway.
+
+And those insane enough to bother with unit testing will also quickly realize that
+its even less fun to have to wrap everything they want to inject into a container
+mock object.
+
+Oh and no IDE auto completion support without jumping through hoops is also a major
+let down of injecting the container or is there an IDE yet that can parse your DIC
+to figure out wtf ``$this->container->get('i_hate_kittens')`` returns?
+
+But ok, there are many crappy answers like lazyness and such to still inject the DIC,
+but there are three semi acceptable reasons:
+
+1) someone else wrote useful code, but thought it was a great idea to require injecting
+   the entire DIC
+
+2) there are a fair bit of optional dependencies which do not really solve themselves
+   by splitting up the service (actually 2) is often a reason why 1) happens even for
+   code written by good people).
+
+3) you need to inject a service before the service actually can exist, like the
+   request service in Symfony2
+
+But wait there is hope!
+-----------------------
+
+In those cases you now have a way to prevent little kittens from being slain!
+
+Instead you can use the ContainerWrapper to explicitly configure your dependencies
+again and to map hardcoded service id's to regain the flexibility that was forsaking
+by not injecting the dependencies explicitly.
+
+But parameters!
+---------------
+
+Yeah, parameters are also handled by the wrapper, though they don't really benefit
+from the lazy loading argument all that much, but I guess once a developer has gone
+the path of darkness, he might just keep using the DI container instead of explicitly
+injecting the parameters, so yeah, probably parameter support should be added too. Evil
+is just so resourceful at being evil.
