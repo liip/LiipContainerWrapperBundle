@@ -30,8 +30,7 @@ class RemoveContainerWrapperPass implements CompilerPassInterface
                 && !$this->containsMappings($arguments[2])
                 && !$this->containsMappings($container->getParameterBag()->resolveValue($arguments[3]))
             ) {
-                // TODO requires https://github.com/symfony/symfony/pull/532
-                // $container->setAlias($id, 'service_container');
+                $container->setAlias($id, 'service_container');
             }
         }
     }
