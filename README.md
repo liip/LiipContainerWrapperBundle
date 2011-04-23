@@ -10,8 +10,6 @@ Because mommy taught you to not screw DI by just injecting everything.
     3. It can replace itself with an alias to ``service_container`` via a config
        option as long as no service/parameter is mapped to a different id/name
 
-Note https://github.com/symfony/symfony/pull/532 is required before 3. can be enabled
-
 Installation
 ============
 
