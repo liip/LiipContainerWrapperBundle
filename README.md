@@ -15,7 +15,7 @@ Installation
 
     1. Add this bundle to your project as a Git submodule:
 
-        $ git submodule add git://github.com/liip/ContainerWrapperBundle.git vendor/bundles/Liip/ContainerWrapperBundle
+        $ git submodule add git://github.com/liip/LiipContainerWrapperBundle.git vendor/bundles/Liip/ContainerWrapperBundle
 
     2. Add the Liip namespace to your autoloader:
 
