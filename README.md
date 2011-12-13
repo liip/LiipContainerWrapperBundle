@@ -3,6 +3,12 @@ ContainerWrapperBundle
 
 Because mommy taught you to not screw DI by just injecting everything.
 
+This bundle is for people who do not like container injection but are forced to use it.
+It provides a configurable proxy container that exposes only parts of the actual container,
+or has certain services re-defined. Instead of injecting the full container you can then
+inject this wrapper instead, which gives you back fine-grained control over the dependencies
+of that component.
+
     1. It provides an abstract ``liip_container_wrapper.service`` service to extend from.
 
     2. It provides a way to easy set default service and parameters to map
