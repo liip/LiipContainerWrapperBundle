@@ -1,0 +1,25 @@
+{
+    "name": "liip/container-wrapper-bundle",
+    "type": "symfony-bundle",
+    "description": "Because mommy taught you to not screw DI by just injecting everything.",
+    "keywords": ["dependency injection"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Liip AG",
+            "homepage": "http://www.liip.ch/"
+        },
+        {
+            "name": "Community contributions",
+            "homepage": "https://github.com/liip/LiipThemeBundle/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/symfony": "2.*"
+    },
+    "autoload": {
+        "psr-0": { "Liip\\ContainerWrapperBundle": "" }
+    },
+    "target-dir": "Liip/ContainerWrapperBundle"
+}
