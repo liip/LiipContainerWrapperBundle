@@ -16,6 +16,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
 {
     protected $serviceIds;
     protected $container;
+    protected $parameterNames;
 
     /**
      * Constructor.
