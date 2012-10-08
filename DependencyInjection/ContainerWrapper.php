@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\ScopeInterface;
 
 /**
  * This is a wrapper around a Container instance to provide instances for specific services only
- * 
+ *
  * @author Lukas Kahwe Smith <smith@pooteeweet.org>
  * @license MIT
  */
@@ -24,7 +24,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
      * @param array $serviceIds A list of service ids
      * @param array $parameterNames A list of parameter name
      * @param array $defaultServiceIds A second list of service ids, usually a list of default services
-     * @param array $defaultServiceIds A second list of parameter names, usually a list of default parameters
+     * @param array $defaultParameterNames A second list of parameter names, usually a list of default parameters
      */
     public function __construct(array $serviceIds, array $parameterNames = array(), array $defaultServiceIds = array(), array $defaultParameterNames = array())
     {
