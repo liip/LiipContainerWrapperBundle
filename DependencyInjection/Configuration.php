@@ -2,8 +2,8 @@
 
 namespace Liip\ContainerWrapperBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Builder\TreeBuilder,
-    Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
  * This class contains the configuration information for the bundle
@@ -45,5 +45,4 @@ class Configuration implements ConfigurationInterface
 
         return $treeBuilder;
     }
-
 }
