@@ -42,7 +42,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     private function resolveConfig($config, $defaultConfig)
     {
         foreach ($config as $name => $mappedName) {
-            if (true === $mappedname) {
+            if (true === $mappedName) {
                 $config[$name] = $name;
             }
         }
@@ -53,7 +53,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
             }
         }
 
-        return $config;        
+        return $config;
     }
 
     /**
