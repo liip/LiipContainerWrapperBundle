@@ -26,34 +26,34 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
      * @param array $defaultServiceIds A second list of service ids, usually a list of default services
      * @param array $defaultParameterNames A second list of parameter names, usually a list of default parameters
      */
-    public function __construct(array $serviceIds, array $parameterNames = array(), array $defaultServiceIds = array(), array $defaultParameterNames = array())
+    public function __construct(
+        array $serviceIds,
+        array $parameterNames = array(),
+        array $defaultServiceIds = array(),
+        array $defaultParameterNames = array()
+    ) {
+        $this->parameterNames = $this->resolveConfig($parameterNames, $defaultParameterNames);
+        $this->serviceIds = $this->resolveConfig($serviceIds, $defaultServiceIds);
+    }
+
+    /**
+     * Resolve configuration mappings with defaults
+     */
+    private function resolveConfig($config, $defaultConfig)
     {
-        foreach ($serviceIds as $serviceId => $mappedServiceId) {
-            if ($mappedServiceId === true) {
-                $serviceIds[$serviceId] = $serviceId;
+        foreach ($config as $name => $mappedName) {
+            if (true === $mappedname) {
+                $config[$name] = $name;
             }
         }
 
-        foreach ($defaultServiceIds as $serviceId => $mappedServiceId) {
-            if (empty($serviceIds[$serviceId])) {
-                $serviceIds[$serviceId] = $mappedServiceId === true ? $serviceId : $mappedServiceId;
+        foreach ($defaultConfig as $name => $mappedName) {
+            if (empty($config[$name])) {
+                $config[$name] = true === $mappedName ? $name : $mappedName;
             }
         }
 
-        foreach ($parameterNames as $name => $mappedName) {
-            if ($mappedName === true) {
-                $parameterNames[$name] = $name;
-            }
-        }
-
-        foreach ($defaultParameterNames as $name => $mappedName) {
-            if (empty($parameterNames[$name])) {
-                $parameterNames[$name] = $mappedName === true ? $name : $mappedName;
-            }
-        }
-
-        $this->parameterNames = $parameterNames;
-        $this->serviceIds = $serviceIds;
+        return $config;        
     }
 
     /**
