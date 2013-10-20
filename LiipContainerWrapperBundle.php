@@ -2,11 +2,11 @@
 
 namespace Liip\ContainerWrapperBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle,
-    Symfony\Component\DependencyInjection\ContainerInterface,
-    Symfony\Component\DependencyInjection\ContainerBuilder,
-    Symfony\Component\DependencyInjection\Compiler\PassConfig,
-    Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Compiler\PassConfig;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 use Liip\ContainerWrapperBundle\DependencyInjection\Compiler\RemoveContainerWrapperPass;
 
