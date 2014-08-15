@@ -19,19 +19,11 @@ of that component.
 Installation
 ============
 
-    1. Add this bundle to your project as a Git submodule:
+    1. Install with Composer
 
-        $ git submodule add git://github.com/liip/LiipContainerWrapperBundle.git vendor/bundles/Liip/ContainerWrapperBundle
+        `php composer.phar require liip/container-wrapper-bundle`
 
-    2. Add the Liip namespace to your autoloader:
-
-        // app/autoload.php
-        $loader->registerNamespaces(array(
-            'Liip' => __DIR__.'/../vendor/bundles',
-            // your other namespaces
-        ));
-
-    3. Add this bundle to your application's kernel:
+    2. Add this bundle to your application's kernel:
 
         // application/ApplicationKernel.php
         public function registerBundles()
