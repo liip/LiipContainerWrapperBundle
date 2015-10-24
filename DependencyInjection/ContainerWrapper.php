@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ScopeInterface;
 
 /**
- * This is a wrapper around a Container instance to provide instances for specific services only
+ * This is a wrapper around a Container instance to provide instances for specific services only.
  *
  * @author Lukas Kahwe Smith <smith@pooteeweet.org>
  * @license MIT
@@ -21,9 +21,9 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     /**
      * Constructor.
      *
-     * @param array $serviceIds A list of service ids
-     * @param array $parameterNames A list of parameter name
-     * @param array $defaultServiceIds A second list of service ids, usually a list of default services
+     * @param array $serviceIds            A list of service ids
+     * @param array $parameterNames        A list of parameter name
+     * @param array $defaultServiceIds     A second list of service ids, usually a list of default services
      * @param array $defaultParameterNames A second list of parameter names, usually a list of default parameters
      */
     public function __construct(
@@ -37,7 +37,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * Resolve configuration mappings with defaults
+     * Resolve configuration mappings with defaults.
      */
     private function resolveConfig($config, $defaultConfig)
     {
@@ -57,7 +57,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getParameterBag()
     {
@@ -65,7 +65,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getParameter($name)
     {
@@ -77,7 +77,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function hasParameter($name)
     {
@@ -89,7 +89,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function setParameter($name, $value)
     {
@@ -102,7 +102,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function set($id, $service, $scope = self::SCOPE_CONTAINER)
     {
@@ -121,7 +121,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function has($id)
     {
@@ -133,7 +133,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function get($id, $invalidBehavior = self::EXCEPTION_ON_INVALID_REFERENCE)
     {
@@ -150,7 +150,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getServiceIds()
     {
@@ -158,7 +158,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function enterScope($name)
     {
@@ -166,7 +166,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function leaveScope($name)
     {
@@ -174,7 +174,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function addScope(ScopeInterface $scope)
     {
@@ -182,7 +182,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function hasScope($name)
     {
@@ -190,7 +190,7 @@ class ContainerWrapper extends ContainerAware implements ContainerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function isScopeActive($name)
     {
