@@ -13,7 +13,7 @@ class LiipContainerWrapperExtension extends Extension
     /**
      * Loads the services based on your application configuration.
      *
-     * @param array $configs
+     * @param array            $configs
      * @param ContainerBuilder $container
      */
     public function load(array $configs, ContainerBuilder $container)
@@ -37,7 +37,7 @@ class LiipContainerWrapperExtension extends Extension
     }
 
     /**
-     * Get File Loader
+     * Get File Loader.
      *
      * @param ContainerBuilder $container
      */
