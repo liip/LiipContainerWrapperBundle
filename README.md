@@ -1,7 +1,12 @@
+UNMAINTAINED
+============
+
+This bundle is no longer maintained. Feel free to fork it if needed.
+
 ContainerWrapperBundle
 ======================
 
-Because mommy taught you to not screw DI by just injecting everything.
+Because don't screw DI by just injecting everything.
 
 This bundle is for people who do not like container injection but are forced to use it.
 It provides a configurable proxy container that exposes only parts of the actual container,
